@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANCY</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Fuentes de letras', cursive; /* Cambio de tipo de letra */
+            background-image: url('https://i.pinimg.com/originals/6c/bd/66/6cbd66a0593e5498f9564f9d92074ef1.gif');
+            background-size: cover;
+            color: #ffffff;
+            text-align: left; /* Alineación del texto a la izquierda */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo con transparencia */
+            padding: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Asegura que esté por encima del contenido */
+            text-align: center; /* Centrar el texto */
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff1493;
+            margin: 0;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding-top: 120px; /* Ajuste para el encabezado fijo */
+            padding-bottom: 50px;
+            width: 100%;
+            max-width: 1200px; /* Limita el ancho del contenido */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .frases {
+            max-width: 600px; /* Limita el ancho de las frases */
+            margin-top: 50px;
+        }
+
+        .slideshow {
+            max-width: 300px; /* Ajusta el tamaño de la ventana de fotos */
+            margin-top: 50px;
+        }
+
+        .slideshow img {
+            width: 100%;
+            border: 5px solid #ffffff; /* Bordes blancos */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: rgba(192, 110, 110, 0.8); /* Fondo con transparencia */
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: 1000; /* Asegura que esté por encima del contenido */
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Botón */
+        .buttons {
+            display: flex;
+            flex-direction: row; /* Alinea los botones en una fila */
+            margin-top: 20px;
+            justify-content: space-around; /* Distribuye el espacio entre los botones */
+        }
+
+        button {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px; /* Espaciado entre botones */
+        }
+
+        button:hover {
+            background-color: #3200bd;
+        }
+
+        /* Estilos adicionales para dispositivos móviles */
+        @media only screen and (max-width: 600px) {
+            header, footer {
+                padding: 15px 0;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 80px;
+                padding-bottom: 30px;
+            }
+
+            .frases, .slideshow {
+                width: 90%;
+                margin-top: 30px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+                margin: 10px 0; /* Espaciado vertical entre botones */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>BIENVENIDOS A LA PÁGINA DE NANCY</h1>
+    </header>
+
+    <div class="content">
+        <div class="frases">
+            <p>Eres la luz que ilumina mi camino.</p>
+            <p>Cada momento a tu lado es un tesoro.</p>
+            <p>Contigo, cada día es más hermoso que el anterior.</p>
+            <p>Eres mi inspiración, mi alegría, mi todo.</p>
+            <p>Tu amor es la melodía que hace latir mi corazón.</p>
+            <p>Querida Nancy, haz clic </p> <a href="https://youtu.be/kWvGywUWLio" target="_blank">AQUÍ  /01/-</a></p> 
+            <a href="https://youtu.be/FPfncq80xnw" target="_blank">AQUÍ  /02/-</a> </p> y solo guárdalo en tus recuerdos. ¡Te deseo muchas felicidades!</p>
+        </div>
+
+        <div class="slideshow">
+            <img src="https://placekitten.com/300/200" alt="Imagen 1" id="slideshow-image">
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="window.location.href='http://localhost/nancy/s1.php'">Sorpresa de Nancy</button>
+        <button onclick="window.location.href='http://localhost/nancy/s2.php'">Sorpresa de Nancy 2</button>
+        <button onclick="window.location.href='http://localhost/nancy/s3.php'">Sorpresa en proceso</button>
+    </div>
+    <footer>
+        <p>&copy; 2024 NANCY. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const images = [
+            'https://cdn.dribbble.com/users/1814300/screenshots/5989814/media/3c9a4ac7e5e3711c7ed544310f524d43.gif',
+            'https://i.pinimg.com/originals/17/3c/5a/173c5a32e701b84866d29c5f8da14a44.gif',
+            'https://tabfacil.com/gif/nancy/mi-corazon-suspira-cada-vez-que-pienso-en-ti-nancy-20-44.gif',
+            'https://tabfacil.com/gif/nancy/simplemente-te-amo-nancy-48-44.gif',
+            'https://usagif.com/wp-content/uploads/gif-heart-22.gif'
+        ];
+        let currentImageIndex = 0;
+        const slideshowImage = document.getElementById('slideshow-image');
+
+        function preloadImages(imageArray) {
+            imageArray.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            slideshowImage.src = images[currentImageIndex];
+        }
+
+        preloadImages(images); // Pre-carga las imágenes
+        setInterval(changeImage, 4000); // Cambia de imagen cada 4 segundos
+    </script> 
+</body>
+</html>

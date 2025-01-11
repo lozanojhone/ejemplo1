@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi vida</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-image: url('https://i.pinimg.com/originals/59/94/b5/5994b5a21eadaf45cef834aba2c7e262.gif');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            color: beige;
+        }
+        header, footer {
+            background-color: black;
+            color: forestgreen;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: row; /* Alinea en fila */
+            align-items: flex-start; /* Alinea al inicio */
+            justify-content: space-around; /* Espacio entre elementos */
+            padding: 20px;
+        }
+        .poem {
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: forestgreen;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        footer {
+            font-size: 0.9em;
+        }
+        button {
+            background-color: forestgreen;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        .slideshow-container {
+            max-width: 300px; /* Ancho máximo de la ventana de imágenes */
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-left: 20px; /* Margen a la izquierda */
+        }
+        .slideshow-image {
+            width: 100%; /* Ajusta el tamaño de la imagen al contenedor */
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nancy, en cada sueño y en cada despertar, mi amor por ti crece</h1>
+    </header>
+    <div class="container">
+        <div class="slideshow-container">
+            <img class="slideshow-image" src="https://cdn.dribbble.com/users/1814300/screenshots/5989814/media/3c9a4ac7e5e3711c7ed544310f524d43.gif" alt="Slideshow Image">
+        </div>
+        <div class="poem">
+            <h1>Bajo el Mismo Cielo, Te Amo</h1>
+            <p>Aunque la distancia separe nuestros cuerpos,<br>
+            mi corazón late junto al tuyo, eterno,<br>
+            en cada estrella veo tu reflejo,<br>
+            y en cada suspiro, tu amor sincero.</p>
+            
+            <p>Lejos de ti, pero nunca separado,<br>
+            nuestros sueños se encuentran en el aire,<br>
+            te pienso en cada amanecer dorado,<br>
+            y en la luna que juntos solemos mirar.</p>
+            
+            <p>Tu risa, el eco que me acompaña,<br>
+            tu voz, la melodía que me sana,<br>
+            a pesar de los kilómetros que nos distancian,<br>
+            nuestro amor crece, se fortalece, y se alza.</p>
+            
+            <p>Cada día, más cerca de volver a abrazarte,<br>
+            esperaré pacientemente, fiel amante,<br>
+            porque el amor verdadero no conoce fronteras,<br>
+            y el nuestro, mi vida, es un viaje sin barreras.</p>
+        </div>
+    </div>
+    <br> <br/>
+    <button onclick="window.location.href='http://localhost/nancy/index.html'"> regresar </button> <br> <br/>
+    <footer>
+        Con todo mi amor, desde la distancia, te amo.
+    </footer>
+
+    <script>
+        const images = [
+            'https://cdn.dribbble.com/users/1814300/screenshots/5989814/media/3c9a4ac7e5e3711c7ed544310f524d43.gif',
+            'https://i.pinimg.com/originals/17/3c/5a/173c5a32e701b84866d29c5f8da14a44.gif',
+            'https://tabfacil.com/gif/nancy/mi-corazon-suspira-cada-vez-que-pienso-en-ti-nancy-20-44.gif',
+            'https://tabfacil.com/gif/nancy/simplemente-te-amo-nancy-48-44.gif',
+            'https://usagif.com/wp-content/uploads/gif-heart-22.gif'
+        ];
+        let currentImageIndex = 0;
+        const slideshowImage = document.querySelector('.slideshow-image');
+
+        function preloadImages(imageArray) {
+            imageArray.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            slideshowImage.src = images[currentImageIndex];
+        }
+
+        preloadImages(images); // Pre-carga las imágenes
+        setInterval(changeImage, 4000); // Cambia de imagen cada 4 segundos
+        
+    </script>   
+</body>
+</html>
