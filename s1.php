@@ -114,7 +114,7 @@
         </div>
     </div>
     <br> <br/>
-    <button onclick="window.location.href='http://localhost/nancy/index.html'"> regresar </button> <br> <br/>
+    <button onclick="window.location.href='https://lozanojhone.github.io/ejemplo1/'"> regresar </button> <br> <br/>
     <footer>
         Con todo mi amor, desde la distancia, te amo.
     </footer>
