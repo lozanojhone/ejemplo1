@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fútbol - En Vivo</title>
+<style>
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo cuerpo y fondo */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+/* Encabezado */
+header {
+  background: linear-gradient(90deg, #00cc66, #00994d);
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Botón de menú mobile, solo en pantallas pequeñas */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #00cc66;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 1100;
+}
+/* Mostrar botón en móvil */
+@media(max-width:768px){
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Navegación en PC y en móvil (sidebar en móvil) */
+nav {
+  display: flex; /* en PC */
+  justify-content: center;
+  background-color: #222;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+nav a {
+  color: #00ff66;
+  margin: 0 20px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  background-color: #00ff66;
+  color: #111;
+  transform: scale(1.05);
+}
+
+/* Rama lateral en móvil, oculta por default */
+@media(max-width:768px){
+  nav {
+    position: fixed;
+    top: 0;
+    left: -250px; /* escondido */
+    width: 250px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  nav.show {
+    left: 0;
+  }
+}
+
+/* Sección hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  margin: 20px;
+  background: linear-gradient(135deg, #111, #222);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+.hero:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+}
+.hero-text {
+  flex: 1 1 300px;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00ff66;
+  font-weight: bold;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.btn-ver-mas {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #00ff66;
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-ver-mas:hover {
+  background-color: #009944;
+  transform: scale(1.05);
+}
+.hero-img {
+  display: flex;
+  flex: 1 1 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.hero-img img {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Contenido adicional oculto */
+#contenidoFutbol {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #222, #111);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+#contenidoFutbol h3 {
+  color: #00ff66;
+  margin-bottom: 10px;
+}
+#contenidoFutbol p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Pie de página */
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  border-top: 3px solid #00ff66;
+  font-size: 0.9rem;
+}
+
+/* Estilos menu lateral en móvil */
+@media(max-width:768px){
+  /* botón menú visible en móvil */
+  .menu-toggle {
+    display: block;
+  }
+  /* Ocultar nav normal en móvil */
+  nav {
+    position: fixed;
+    top: 0;
+    left: -250px; /* oculto */
+    width: 250px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    background-color: #222;
+    z-index: 999;
+  }
+  /* Cuando tenga clase 'show' se despliega */
+  nav.show {
+    left: 0;
+  }
+  /* Opcional: agregar margen a body en modo móvil si quieres que no se vea detrás de la barra */
+  body.menu-active {
+    overflow: hidden; /* evita scroll */
+  }
+}
+</style>
+</head>
+<body>
+<!-- Botón para móvil -->
+<div class="menu-toggle" onclick="toggleMenu()">Menú</div>
+
+<header>
+<h1>Fútbol y Peliculas</h1>
+</header>
+
+<!-- Navegación -->
+<nav>
+  <a href="inicio.html" class="btn-main">Inicio</a>
+  <a href="https://neexgo.es" class="btn-main">Peliculas</a>
+  <a href="https://5900.tv/category/vivo/television" target="_blank" class="btn-main">TV En Vivo</a>
+  <a href="https://wa.me/906308439?text=Hola%2C%20quiero%20más%20información." target="_blank" class="btn-main">Contacto</a>
+  <a href="#" class="btn-main" onclick="cerrarSesion()">Salir</a>
+</nav>
+
+<!-- Mensaje bienvenida -->
+<div id="mensaje-bienvenida" style="margin:10px 0;"></div>
+
+<!-- Sección principal -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>Bienvenido al fútbol en vivo</h2>
+    <p>Consulta partidos, equipos en tiempo real.</p>
+    <a href="https://streamtp11.com/eventos.html" class="btn-ver-mas">Ver más</a>
+  </div>
+  <div class="hero-img">
+    <img src="001.jpeg" alt="Fútbol" />
+    <img src="002.jpeg" alt="Fútbol" />
+    <img src="003.jpeg" alt="Fútbol" />
+  </div>
+</section>
+
+<!-- Contenido adicional -->
+<div id="contenidoFutbol" class="hidden">
+  <h3>Historia del Fútbol</h3>
+  <p>El fútbol es uno de los deportes más populares del mundo...</p>
+  <h3>Grandes Equipos</h3>
+  <p>Algunos de los equipos más exitosos... </p>
+</div>
+
+<!-- Pie de página -->
+<footer>
+  <p>&copy; 2025 Sistema de Fútbol. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+// Verificar si el usuario está logueado
+if (sessionStorage.getItem("logueado") !== "true") {
+  alert("Debe iniciar sesión para acceder a esta página.");
+  window.location.href = "index.html";
+}
+// Mostrar mensaje de bienvenida en DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  const bienvenida = document.getElementById("mensaje-bienvenida");
+  if (bienvenida) {
+    bienvenida.innerHTML = `¡Bienvenido a nuestra comunidad de fútbol!<br>
+      <small>Si en algún momento los anuncios te resultan molestos, por favor, avísanos. Tu comodidad es nuestra prioridad y queremos que tu experiencia sea la mejor posible. <a href="https://wa.me/906308439?text=Hola%2C%20quiero%20más%20información." target="_blank">Aquí</a></small>`;
+    bienvenida.className = "mensaje-bienvenido"; // Puedes omitir si usas el ID directamente
+  }
+});
+
+// Función para cerrar sesión
+function cerrarSesion() {
+  sessionStorage.removeItem("logueado");
+  window.location.href = "index.html";
+}
+// Función para toggle menú en móvil
+function toggleMenu() {
+  document.querySelector("nav").classList.toggle("show");
+  document.body.classList.toggle('menu-active');
+}
+</script>
+
+</body>
+</html>
