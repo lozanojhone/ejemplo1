@@ -1,0 +1,243 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo y estructura general */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(90deg, #00cc66, #00994d);
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Botón menú con estilo moderno y ubicado en la esquina superior izquierda */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #00cc66;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 1100;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+@media(max-width:768px){
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Navegación elegante, en línea en PC y lateral en móvil */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #222;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+nav a {
+  color: #00ff66;
+  margin: 0 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  background-color: #00ff66;
+  color: #111;
+  transform: scale(1.05);
+}
+
+@media(max-width:768px){
+  nav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    background-color: #222;
+    z-index: 999;
+  }
+  nav.show {
+    left: 0;
+  }
+}
+
+/* Mensaje resaltado y atractivo */
+#mensaje-bienvenido {
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #00cc66, #00994d);
+  border: 2px solid #00cc66;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+#mensaje-bienvenido a {
+  color: #ffe600;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#mensaje-bienvenido:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* Sección principal con estilo moderno */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  margin: 20px;
+  background: linear-gradient(135deg, #111, #222);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.hero:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+}
+.hero-text {
+  flex: 1 1 300px;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00ff66;
+  font-weight: bold;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.btn-ver-mas {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #00ff66;
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-ver-mas:hover {
+  background-color: #009944;
+  transform: scale(1.05);
+}
+.hero-img {
+  display: flex;
+  flex: 1 1 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.hero-img img {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+/* Contenido adicional */
+#contenidoFutbol {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #222, #111);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+#contenidoFutbol h3 {
+  color: #00ff66;
+  margin-bottom: 10px;
+}
+#contenidoFutbol p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+}
+footer p {
+  font-size: 0.9rem;
+  color: #888;
+}/* Estilo para el mensaje de bienvenida con mayor vida y efecto visual */
+#mensaje-bienvenido {
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #4CAF50, #81C784); /* Fondo degradado vibrante */
+  border: 3px solid #2E7D32; /* Borde más destacado en verde oscuro */
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif; /* Tipografía moderna y amigable */
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para dar más vida */
+#mensaje-bienvenido:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  /* Puedes agregar otros efectos si deseas */
+}
+
+/* Estilo para enlaces dentro del mensaje que sean llamativos */
+#mensaje-bienvenido a {
+  color: #ffeb3b; /* Amarillo vibrante */
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#mensaje-bienvenido a:hover {
+  color: #ffd600;
+  text-decoration: none;
+}
